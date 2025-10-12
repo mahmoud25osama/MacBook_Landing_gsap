@@ -1,12 +1,16 @@
+'use client'
 import Hero from '@/components/Hero'
-import Navbar from '@/components/Navbar'
+import ProductViewer from '@/components/ProductViewer'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
+gsap.registerPlugin(ScrollTrigger)
 function Page() {
     return (
-        <>
-            <Navbar />
+        <main>
             <Hero />
-        </>
+            <ProductViewer />
+        </main>
     )
 }
 
