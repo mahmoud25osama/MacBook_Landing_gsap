@@ -12,7 +12,7 @@ function ProductViewer() {
     return (
         <section
             id="product-viewer"
-            className="container relative min-h-[93vh] mx-auto px-5 2xl:px-0 mt-40"
+            className="container relative min-h-[93vh] mx-auto p-5 2xl:px-0 mt-20"
         >
             <h2 className="text-white font-semibold text-3xl lg:text-6xl">
                 Take a closer look.
@@ -44,30 +44,36 @@ function ProductViewer() {
                         />
                     </div>
                     {/* size-control */}
-                    <div className="small-medium flex-between bg-neutral-800 rounded-full px-6 py-2.5 gap-2">
-                        <div
+                    <div
+                        className="small-medium flex-between bg-neutral-800 rounded-full px-6 py-2.5 gap-2"
+                        role="group"
+                        aria-label="Size selection"
+                    >
+                        <button
                             onClick={() => setScale(0.06)}
+                            aria-label="14 inch"
                             className={clsx(
-                                'size-8 rounded-full cursor-pointer  flex-center',
+                                'size-8 rounded-full cursor-pointer flex-center',
                                 scale === 0.06
-                                    ? 'bg-white text-black '
+                                    ? 'bg-white text-black'
                                     : 'bg-transparent text-white'
                             )}
                         >
                             <p>14{`"`}</p>
-                        </div>
-                        <div
+                        </button>
+                        <button
                             onClick={() => setScale(0.08)}
+                            aria-label="16 inch"
                             className={clsx(
-                                'size-8 rounded-full cursor-pointer  flex-center',
+                                'size-8 rounded-full cursor-pointer flex-center',
                                 scale === 0.08
-                                    ? 'bg-white text-black '
+                                    ? 'bg-white text-black'
                                     : 'bg-transparent text-white'
                             )}
                         >
                             <p>16{`"`}</p>
-                        </div>
-                    </div>
+                        </button>
+                    </div>{' '}
                 </div>
             </div>
             <Canvas

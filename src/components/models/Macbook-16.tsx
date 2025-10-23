@@ -71,19 +71,14 @@ export default function MacBookModel16(props: JSX.IntrinsicElements['group']) {
         scene.traverse((child) => {
             if ((child as THREE.Mesh).isMesh) {
                 if (!noChangeParts.includes(child.name)) {
-                    const mesh = child as THREE.Mesh
-                    const material = mesh.material
+                    const material = (child as THREE.Mesh).material
                     if (
                         material &&
+                        'color' in material &&
                         material instanceof THREE.MeshStandardMaterial
                     ) {
-                        if (!mesh.userData.originalMaterial) {
-                            mesh.userData.originalMaterial = material
-                            mesh.material = material.clone()
-                        }
-                        ;(
-                            mesh.material as THREE.MeshStandardMaterial
-                        ).color.set(color)
+                        ;(material as THREE.MeshStandardMaterial).color =
+                            new THREE.Color(color)
                     }
                 }
             }
